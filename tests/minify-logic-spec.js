@@ -14,4 +14,12 @@ describe('JSON Minifier minify logic', function() {
     expect(item.key).toBe('something');
     done();
   });
+
+  it('should not minify object inside object when no minification table provided', function(done){
+    var item =  { key: { secondLevel: 'something' } };
+    minifier.minify(item);
+    expect(item.key.secondLevel).not.toBe(undefined);
+    expect(item.key.secondLevel).toBe('something');
+    done();
+  });
 });
