@@ -2,6 +2,9 @@
 A two-way JSON minifier to reduce JSON size and amount of data transferred on clients. Can also act as an obfuscator.
 
 # how to use
+
+```npm install json-minifier```
+
 ## Compressor
 
 ```js
