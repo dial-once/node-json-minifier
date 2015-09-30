@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/dial-once/node-json-minifier/issues"
   },
-  "homepage": "https://github.com/dial-once/node-json-minifier#readme"
+  "homepage": "https://github.com/dial-once/node-json-minifier#readme",
+  "dependencies": {
+    "lodash": "^3.10.1"
+  }
 }
