@@ -26,3 +26,35 @@ var json = minifier.minify({
 */
 console.log(json);
 ```
+
+## Uncompressor
+Using the json object from the previous exemple:
+```js
+/*
+{
+  SomeAnotherPropertyThatIsRealyLong: 1234,
+  MySuperLongKey: 'Home',
+  key: 0
+}
+*/
+console.log(minifier.unminify(json));
+```
+
+### Use in browser
+You can implement your own, don't need to require our module or use browserify. Use the following snippet:
+
+```json``` is your compressed json, and you exposed your compression table in the ```reverseJsonFilters``` array.
+
+```js
+function unzip(json) {
+  for (var key in json) {
+    if (typeof json[key] === 'object') {
+      unzip(json[key]);
+    } 
+    if (reverseJsonFilters[key] !== undefined) {
+      json[reverseJsonFilters[key]] = json[key];
+      delete json[key];
+    }
+  }
+}
+```
