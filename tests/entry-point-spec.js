@@ -1,4 +1,4 @@
-var minifier = require('../');
+var minifier = require('../')();
 
 function doneCallback(done){
   return function(){
@@ -7,5 +7,9 @@ function doneCallback(done){
 }
 
 describe('JSON Minifier entry point', function() {
-
+  it('should expose minify function', function(done){
+    expect(minifier.minify).not.toBe(undefined);
+    expect(typeof minifier.minify).toBe('function');
+    done();
+  });
 });
