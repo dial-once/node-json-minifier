@@ -26,3 +26,16 @@ var json = minifier.minify({
 */
 console.log(json);
 ```
+
+## Uncompressor
+Using the json object from the previous exemple:
+```js
+/*
+{
+  SomeAnotherPropertyThatIsRealyLong: 1234,
+  MySuperLongKey: 'Home',
+  key: 0
+}
+*/
+console.log(minifier.unminify(json));
+```
