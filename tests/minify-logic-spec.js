@@ -46,4 +46,22 @@ describe('JSON Minifier minify logic', function() {
     expect(item.subLevel.k).toBe('something');
     done();
   });
+
+  it('should minify array of objects when minification table match the object', function(done){
+    minifier = require('../')({ key2: 'k' });
+    item = minifier.minify([{ subLevel: { key2: 'something' }}]);
+    expect(item[0].subLevel.k).not.toBe(undefined);
+    expect(item[0].subLevel.k).toBe('something');
+    done();
+  });
+
+  it('should minify an array inside an array of objects when minification table match the object', function(done){
+    minifier = require('../')({ key2: 'k' });
+    item = minifier.minify([{ subLevel: [{ key2: 'something' }, {key2: 'something else'}]}]);
+    expect(item[0].subLevel[0].k).not.toBe(undefined);
+    expect(item[0].subLevel[0].k).toBe('something');
+    expect(item[0].subLevel[1].k).not.toBe(undefined);
+    expect(item[0].subLevel[1].k).toBe('something else');
+    done();
+  });
 });
