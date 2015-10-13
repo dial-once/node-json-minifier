@@ -1,6 +1,6 @@
 {
   "name": "json-minifier",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A two-way JSON minifier to reduce JSON size and amount of data transferred on clients. Can also act as an obfuscator.",
   "main": "index.js",
   "scripts": {
