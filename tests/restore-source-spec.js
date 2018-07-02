@@ -17,6 +17,6 @@ describe('JSON minifier restore source logic', function() {
       var minified = minifier.minify(testCase.source);
       var unminified = minifier.unminify(minified);
       expect(unminified).toEqual(testCase.source);
-    })
+    });
   });
 });

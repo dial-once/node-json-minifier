@@ -1,11 +1,5 @@
 var minifier = require('../')();
 
-function doneCallback(done){
-  return function(){
-    done();
-  };
-}
-
 var item;
 
 describe('JSON Minifier minify logic', function() {
