@@ -1,4 +1,12 @@
 # node-json-minifier
+
+[![Sonar](http://proxy.dialonce.net/sonar/api/badges/gate?key=node-json-minifier)](http://sonar.dialonce.net/dashboard?id=node-json-minifier)
+[![Sonar](http://proxy.dialonce.net/sonar/api/badges/measure?key=node-json-minifier&metric=ncloc)](http://sonar.dialonce.net/dashboard?id=node-json-minifier)
+[![Sonar](http://proxy.dialonce.net/sonar/api/badges/measure?key=node-json-minifier&metric=coverage)](http://sonar.dialonce.net/dashboard?id=node-json-minifier)
+[![Sonar](http://proxy.dialonce.net/sonar/api/badges/measure?key=node-json-minifier&metric=code_smells)](http://proxy.dialonce.net/sonar/api/badges/measure?key=node-json-minifier&metric=coverage)
+[![Sonar](http://proxy.dialonce.net/sonar/api/badges/measure?key=node-json-minifier&metric=bugs)](http://sonar.dialonce.net/dashboard?id=node-json-minifier)
+[![Sonar](http://proxy.dialonce.net/sonar/api/badges/measure?key=node-json-minifier&metric=sqale_debt_ratio)](http://sonar.dialonce.net/dashboard?id=node-json-minifier)
+
 A two-way JSON minifier to reduce JSON size and amount of data transferred on clients. Can also act as an obfuscator.
 
 # how to use
@@ -25,7 +33,7 @@ var json = minifier.minify({
 /*
 { s: 1234,
   m: 'Home',
-  k: 0 } 
+  k: 0 }
 */
 console.log(json);
 ```
@@ -53,7 +61,7 @@ function unzip(json) {
   for (var key in json) {
     if (typeof json[key] === 'object') {
       unzip(json[key]);
-    } 
+    }
     if (reverseJsonFilters[key] !== undefined) {
       json[reverseJsonFilters[key]] = json[key];
       delete json[key];
