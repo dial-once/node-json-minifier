@@ -1,19 +1,23 @@
-var minifier = require('../')();
+const chai = require('chai');
+const assert = require('assert');
+let minifier = require('../')();
 
-var item;
+const { expect } = chai;
 
-describe('JSON Minifier object formatting', function() {
-  it('should keep array type when input is an array', function(done){
-    minifier = require('../')({ key2: 'k' });
+let item;
+
+describe('JSON Minifier object formatting', () => {
+  it('should keep array type when input is an array', (done) => {
+    minifier = require('../')({ key2: 'k' }); // eslint-disable-line global-require
     item = minifier.minify([{ key2: 'something' }]);
-    expect(item.length).not.toBe(undefined);
+    expect(item.length).to.not.equal(undefined);
     done();
   });
 
-  it('should keep object type when input is an object', function(done){
-    minifier = require('../')({ key2: 'k' });
+  it('should keep object type when input is an object', (done) => {
+    minifier = require('../')({ key2: 'k' }); // eslint-disable-line global-require
     item = minifier.minify({ key2: 'something' });
-    expect(item.length).toBe(undefined);
+    assert.equal(item.length, undefined);
     done();
   });
 });
