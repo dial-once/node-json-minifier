@@ -1,23 +1,27 @@
-var minifier = require('../')();
+const chai = require('chai');
+const assert = require('assert');
+let minifier = require('../')();
 
-describe('JSON Minifier entry point', function() {
-  it('should expose minify function', function(done){
-    expect(minifier.minify).not.toBe(undefined);
-    expect(typeof minifier.minify).toBe('function');
+const { expect } = chai;
+
+describe('JSON Minifier entry point', () => {
+  it('should expose minify function', (done) => {
+    expect(minifier.minify).to.not.equal(undefined);
+    assert.equal(typeof minifier.minify, 'function');
     done();
   });
 
-  it('should expose table parameter', function(done){
-    expect(minifier.table).not.toBe(undefined);
-    expect(typeof minifier.table).toBe('object');
+  it('should expose table parameter', (done) => {
+    expect(minifier.table).to.not.equal(undefined);
+    assert.equal(typeof minifier.table, 'object');
     done();
   });
 
-  it('should expose table parameter provided on require', function(done){
-    minifier = require('../')({item: 'i'});
-    expect(minifier.table).not.toBe(undefined);
-    expect(typeof minifier.table).toBe('object');
-    expect(minifier.table.item).toBe('i');
+  it('should expose table parameter provided on require', (done) => {
+    minifier = require('../')({ item: 'i' }); // eslint-disable-line global-require
+    expect(minifier.table).to.not.equal(undefined);
+    assert.equal(typeof minifier.table, 'object');
+    assert.equal(minifier.table.item, 'i');
     done();
   });
 });

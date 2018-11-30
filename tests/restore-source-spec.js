@@ -1,7 +1,10 @@
-var minifier = require('../')();
+const chai = require('chai');
+const minifier = require('../')();
 
-describe('JSON minifier restore source logic', function() {
-  var testCases = [
+const { expect } = chai;
+
+describe('JSON minifier restore source logic', () => {
+  const testCases = [
     {
       title: 'should properly restore nested objects',
       source: { key1: { key2: 4 } }
@@ -12,11 +15,11 @@ describe('JSON minifier restore source logic', function() {
     }
   ];
 
-  testCases.forEach(function(testCase) {
-    it(testCase.title, function() {
-      var minified = minifier.minify(testCase.source);
-      var unminified = minifier.unminify(minified);
-      expect(unminified).toEqual(testCase.source);
+  testCases.forEach((testCase) => {
+    it(testCase.title, () => {
+      const minified = minifier.minify(testCase.source);
+      const unminified = minifier.unminify(minified);
+      expect(unminified).deep.equal(testCase.source);
     });
   });
 });
